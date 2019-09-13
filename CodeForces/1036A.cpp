@@ -1,0 +1,24 @@
+#include <iostream>
+#include <vector>
+#include <stack>
+#include <queue>
+#include <algorithm>
+#include <cstring>
+#include <string>
+#include <cmath>
+#include <cstdio>
+#include <iomanip>
+using namespace std;
+
+///////////////////////////
+
+////////
+
+int main()
+{
+    ios::sync_with_stdio(false); cin.tie(0);
+    long long n,k;
+    cin>>n>>k;
+    cout<<(n+k-1)/n;
+    return 0;
+}
