@@ -45,5 +45,40 @@ struct Trie
     int tot,root;
     vector< vector<int> > child;
     vector<bool> flag;
+    vector<int> v(128,0);
+    Trie()
+    {
+        child.push_back(v);
+        child.push_back(v);
+        flag.push_back(false);
+        flag.push_back(false);
+        root=tot=1;
+    }
+    void insert(string str)
+    {
+        int cur = root;
+        int len=str.length();
+        for(int i=0;i<len;++i)
+        {
+            cur=child[cur][str[i]];
+            if(cur==0)
+            {
+                child[cur][str[i]]=cur=++tot;
+                child.push_back(v);
+                flag.push_back(false);
+            }
+        }
+        flag[cur]=true;
+    }
+    bool query(string str)
+    {
+        int cur = root;
+        int len=str.length();
+        for(int i=0;i<len && cur;++i)
+        {
+            cur=child[cur][str[i]];
+        }
+        return (cur && flag[cur]);
+    }
 };
 
